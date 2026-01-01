@@ -9,7 +9,7 @@ import VolumeIcon from '@mui/icons-material/VolumeUp';
 import SettingsIcon from '@mui/icons-material/Settings';
 import {useHotkeys} from 'react-hotkeys-hook';
 import {Video} from './Video';
-import makeStyles from '@mui/styles/makeStyles';
+import {makeStyles} from 'tss-react/mui';
 import {ConnectedRoom} from './useRoom';
 import {useSnackbar} from 'notistack';
 import {RoomUser} from './message';
@@ -64,7 +64,7 @@ export const Room = ({
     stopShare: () => void;
     setName: (name: string) => void;
 }) => {
-    const classes = useStyles();
+    const {classes} = useStyles();
     const [open, setOpen] = React.useState(false);
     const {enqueueSnackbar} = useSnackbar();
     const [settings, setSettings] = useSettings();
@@ -412,7 +412,7 @@ const AudioControl = ({video}: {video: FullScreenHTMLVideoElement}) => {
     );
 };
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles()(() => ({
     title: {
         padding: 15,
         position: 'fixed',
